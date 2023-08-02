@@ -42,20 +42,21 @@ class PostCardComponent extends HTMLElement{
 
                 <div class="card-details">
                     <span class="card-detail">${this.post.data.created}</span>
-                    <span class="card-detail">${this.post.data.url}</span>
+                    <a class="card-detail" href="${this.post.data.url}" target="_blank">Vai al post</a>
                     <span class="card-detail" id="post-thumbnail">${this.post.data.thumbnail}</span>
                 </div>
             </div>
             
             `
 
-            const postThumbnail = document.getElementById('post-thumbnail');
-            const img = document.createElement('img')
-            img.src = this.post.thumbnail
-            postThumbnail.appendChild(img)
+            const postThumbnail = this.shadowRoot.getElementById('post-thumbnail');
+            const img = document.createElement('img');
+            img.src = this.post.data.thumbnail;
+            postThumbnail.appendChild(img);
 
         }
     }
 }
 
 customElements.define('post-card', PostCardComponent);
+

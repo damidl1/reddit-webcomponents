@@ -5,3 +5,4 @@ fetch('https://www.reddit.com/r/aww/new.json')
     const posts = data.children;
     console.log(posts);
 })
+

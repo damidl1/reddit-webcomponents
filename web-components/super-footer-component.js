@@ -13,9 +13,10 @@ class SuperFooterComponent extends HTMLElement{
 
         this.shadowRoot.innerHTML = `
         
-        <p>©Game Platform 2023</p>
+        <p>©Reddit Posts List 2023</p>
         `
     }
 }
 
 customElements.define('super-footer', SuperFooterComponent);
+

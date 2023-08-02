@@ -42,3 +42,4 @@ class PostsListComponent extends HTMLElement{
 }
 
 customElements.define('posts-list', PostsListComponent);
+

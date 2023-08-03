@@ -43,18 +43,47 @@ class PostCardComponent extends HTMLElement{
                 <div class="card-details">
                     <span class="card-detail">${this.post.data.created}</span>
                     <a class="card-detail" href="${this.post.data.url}" target="_blank">Vai al post</a>
-                    <span class="card-detail" id="post-thumbnail">${this.post.data.thumbnail}</span>
+                    <img src="${this.post.data.thumbnail}" alt="thumbnail">
                 </div>
             </div>
             
             `
 
-            const postThumbnail = this.shadowRoot.getElementById('post-thumbnail');
-            const img = document.createElement('img');
-            img.src = this.post.data.thumbnail;
-            postThumbnail.appendChild(img);
+            // const postThumbnail = this.shadowRoot.getElementById('post-thumbnail');
+            // const img = document.createElement('img');
+            // img.src = this.post.data.thumbnail;
+            // postThumbnail.appendChild(img);
 
         }
+    }
+
+    toHumanTime(timestamp){  // funzione per convertire date
+
+        const timestampInMills = timestamp * 1000; //per trasformare in millisecondi
+
+        const now = Date.now(); // new Date().getTime(); // due modi per prendere data attuale
+        
+        const delta = now - timestampInMills;
+
+        const seconds = parseInt(timestamp / 1000);  // troviamo i secondi
+    
+        if (seconds < 60) { // se i secondi sono minori di 60 ritorna i secondi
+            return seconds + ' secondi fa...';
+        }
+        
+        const minutes = parseInt(seconds / 60); // per trovare i minuti
+        
+        if (minutes < 60) {
+            return minutes + ' minuti fa...';
+        }
+
+        const hours = parseInt(minutes / 60);
+
+        if (hours < 24) {
+            return hours + ' ore fa...';
+        }
+
+        return parseInt(hours / 24) + ' giorni fa...';
     }
 }
 

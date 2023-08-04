@@ -65,7 +65,7 @@ class PostCardComponent extends HTMLElement{
         
         const delta = now - timestampInMills;
 
-        const seconds = parseInt(timestamp / 1000);  // troviamo i secondi
+        const seconds = parseInt(delta / 1000);  // troviamo i secondi
     
         if (seconds < 60) { // se i secondi sono minori di 60 ritorna i secondi
             return seconds + ' secondi fa...';

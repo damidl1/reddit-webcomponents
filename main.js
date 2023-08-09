@@ -6,3 +6,11 @@ fetch('https://www.reddit.com/r/aww/new.json')
     console.log(posts);
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+    const selectedSubreddits = window.DBService.getSelectedSubreddits();
+
+    if (!selectedSubreddits.length) {
+        const subredditDialog = document.createElement('subreddit-dialog');
+        document.body.appendChild(subredditDialog);
+    }
+});

@@ -27,6 +27,8 @@ class PostsListComponent extends HTMLElement{
         const mainContainer = document.createElement('div');
         this.shadowRoot.appendChild(mainContainer);
 
+        const selectedSubreddits = window.DBService
+
         for (let i = 0; i < posts.length; i++) {
             const post = posts[i];
 

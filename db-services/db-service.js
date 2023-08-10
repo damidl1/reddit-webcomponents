@@ -15,4 +15,7 @@ class DBService {
     }
 }
 
-window.DBService = new DBService();
+const dbService = new DBService();
+
+window.dbService = dbService;
+

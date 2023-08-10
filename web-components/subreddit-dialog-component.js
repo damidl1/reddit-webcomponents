@@ -69,7 +69,10 @@ confirmButton.addEventListener('click', () => {
         .map(checkbox => checkbox.value);
 
         if (selectedSubreddits.length > 0) {
-            window.DBService.saveSelectedSubreddits(selectedSubreddits)
+            const event = new CustomEvent('subredditsSelected', {
+                detail: {subreddits: selectedSubreddits}
+            });
+            document.dispatchEvent(event);
         }
 
         this.remove();

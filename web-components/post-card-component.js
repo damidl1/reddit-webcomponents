@@ -41,7 +41,7 @@ class PostCardComponent extends HTMLElement{
              <span class="card-author">${this.post.data.author}</span>
 
                 <div class="card-details">
-                    <span class="card-detail">${this.toHumanTime(this.post.data.created)}</span>
+                    <span class="card-detail">${this.post.data.created}</span>
                     <a class="card-detail" href="${this.post.data.url}" target="_blank">Vai al post</a>
                     <img src="${this.post.data.thumbnail}" alt="thumbnail">
                 </div>
@@ -65,7 +65,7 @@ class PostCardComponent extends HTMLElement{
         
         const delta = now - timestampInMills;
 
-        const seconds = parseInt(delta / 1000);  // troviamo i secondi
+        const seconds = parseInt(timestamp / 1000);  // troviamo i secondi
     
         if (seconds < 60) { // se i secondi sono minori di 60 ritorna i secondi
             return seconds + ' secondi fa...';
@@ -88,4 +88,3 @@ class PostCardComponent extends HTMLElement{
 }
 
 customElements.define('post-card', PostCardComponent);
-

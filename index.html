@@ -7,12 +7,64 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <dialog open>
+    <div class="dialog">
+        <h2 class="dialog-title">Seleziona i subreddit</h2>
+        <label>
+            <input type="checkbox" name="subreddit" value="aww" checked>
+            aww
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="italy">
+            italy
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="photography">
+            photography
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="gaming">
+            gaming
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="travel">
+            travel
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="music">
+            music
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="food">
+            food
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="news">
+            news
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="sports">
+            sports
+        </label>
+        <label>
+            <input type="checkbox" name="subreddit" value="technology">
+            technology
+        </label>
+    
+        <button id="confirmBtn">Conferma</button>
+    </div>
+</dialog>
+
+
     <super-header id="header" super-title="Reddit Posts"></super-header>
+    <button id="openDialogBtn" onclick="openSubredditDialog()">Scegli subreddit</button>
+    <subreddit-dialog id="subredditDialog"></subreddit-dialog>
     <posts-list></posts-list>
     <super-footer></super-footer>
 </body>
 <script src="./db-services/db-service.js"></script>
 <script src="./web-components/post-card-component.js"></script>
+<script src="./web-components/italy-posts-component.js"></script>
 <script src="./web-components/post-list-component.js"></script>
 <script src="./web-components/subreddit-dialog-component.js"></script>
 <script src="./web-components/super-footer-component.js"></script>

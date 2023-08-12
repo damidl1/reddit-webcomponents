@@ -4,7 +4,7 @@ class PostsListComponent extends HTMLElement{
         super();
         this.attachShadow({mode: 'open'});
         this.postsArray = [];
-        // this.subreddits = ['aww', 'italy', 'photography', 'gaming', 'travel', 'music', 'food', 'news', 'sports', 'technology'];
+        this.subreddits = ['aww', 'italy', 'photography', 'gaming', 'travel', 'music', 'food', 'news', 'sports', 'technology'];
         this.subredditLinks = [
             'https://www.reddit.com/r/aww/new.json',
             'https://www.reddit.com/r/italy/new.json',
@@ -19,35 +19,28 @@ class PostsListComponent extends HTMLElement{
         ];
     }
 
-    connectedCallback(){
-        fetch('https://www.reddit.com/r/aww/new.json')
-        .then(resp => resp.json())
-        .then(res => {
-            const data = res.data;
-            const posts = data.children;
-            this.postsArray = posts;
-            this.render(this.postsArray);
+//     connectedCallback(){
+//         fetch('https://www.reddit.com/r/aww/new.json')
+//         .then(resp => resp.json())
+//         .then(res => {
+//             const data = res.data;
+//             const posts = data.children;
+//             this.postsArray = posts;
+//             this.render(this.postsArray);
             
-        });
-    }
+//         });
+//     }
 
-    connectedCallback(){
-        const promises = this.subredditLinks.map(subredditLink => {
-            return fetch(subredditLink)
-            .then(resp => resp.json())
-            .then(res => res.data.children);
-        });
+//     connectedCallback(){
+//         const promises = this.subredditLinks.map(subredditLink => {
+//             return fetch(subredditLink)
+//             .then(resp => resp.json())
+//             .then(res => res.data.children);
+//         });
    
 
-    Promise.all(promises)
-    .then(results => {
-        this.postsArray = results.flat();
-        this.render(this.postsArray);
-    })
-    .catch(error => {
-        console.error('errore nel caricamento dei subreddit: ', error);
-    });
- }
+ 
+//  }
 
     render(posts){
 
